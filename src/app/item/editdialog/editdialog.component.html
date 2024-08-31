@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Edit To Do</h1>
+<div mat-dialog-content>
+     <input matInput cdkFocusInitial
+     class="sm-text-input"
+     placeholder="edit item"
+     [value]="data"
+     #editedDesc
+     (keyup.enter)="onSave(editedDesc.value)" />
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSave(editedDesc.value)">Save</button>
+</div>
