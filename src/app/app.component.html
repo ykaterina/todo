@@ -1,15 +1,24 @@
 
 <div class="main">
   <h1>TO DO</h1>
-  <label for="addItemInput">What would you like to do today?</label>
-  <input 
-    #newItem placeholder="add an item" 
-    (keyup.enter)="addItem(newItem.value); 
-    newItem.value = ''"
-    class="lg-text-input" 
-    id="addItemInput" />
 
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  <div class="add-new-item">
+      <span>What would you like to do today?</span>
+      <input 
+          #newItem
+          (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+          class="lg-text-input" 
+          id="addItemInput" />
+  
+      <button mat-flat-button (click)="addItem(newItem.value)">Add</button>
+  </div>
+
+  <p>
+    <mat-button-toggle-group name="filterToDo" aria-label="Filter" (change)="onFilterChange($event.value)">
+      <mat-button-toggle *ngFor="let f of filters" [value]="f"> {{f}}</mat-button-toggle>
+      
+    </mat-button-toggle-group>
+  </p>
 
   <h2>
     {{items.length}}

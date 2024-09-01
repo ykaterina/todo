@@ -30,8 +30,9 @@ export class ItemComponent {
 
   openEditDialog(){
     const editDialog = this.dialog.open(EditdialogComponent, {
-      width: '250px',
-      data: this.item.description
+      height: '400px',
+      width: '600px',
+      data: this.item.description,
     });
 
     editDialog.afterClosed().subscribe(result => {
